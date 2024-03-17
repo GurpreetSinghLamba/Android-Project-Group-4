@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,15 +36,35 @@ android {
         jvmTarget = "1.8"
     }
 }
-
+apply(plugin = "com.android.application")
+dependencies {
+    kapt ("com.github.bumptech.glide:compiler:4.11.0")
+}
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.firebase:firebase-database:20.3.0")
+
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:30.5.0"))
+    implementation("com.google.firebase:firebase-core")
+    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage")
+
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+    implementation ("com.firebaseui:firebase-ui-auth:8.0.2")
+    implementation ("com.firebaseui:firebase-ui-storage:8.0.2")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.JobXpress"
         tools:targetApi="31">
         <activity
+            android:name=".candidateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.App.SplashScreen"
             android:exported="true">
