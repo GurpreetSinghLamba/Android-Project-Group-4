@@ -18,7 +18,7 @@ class candidateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_candidate) // Set the layout file for this activity
+        setContentView(R.layout.activity_candidate)
 
         auth = FirebaseAuth.getInstance()
         var query = FirebaseDatabase.getInstance().reference.child("candidates")
@@ -31,11 +31,9 @@ class candidateActivity : AppCompatActivity() {
             rView.adapter = adapter
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {
-            Log.d("ButtonClicked", "Back button clicked")
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            Log.d("ActivityNavigation", "Navigating to MainActivity")
-            finish()
         }
 
     }
