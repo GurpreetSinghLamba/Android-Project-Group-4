@@ -27,7 +27,7 @@ class candidateActivity : AppCompatActivity() {
 
         adapter = CandidateAdapter(options)
         val rView: RecyclerView = findViewById(R.id.candidateRecyclerView)
-            rView.layoutManager = GridLayoutManager(this, 2)
+            rView.layoutManager = GridLayoutManager(this, 1)
             rView.adapter = adapter
         val backButton: ImageButton = findViewById(R.id.backButton)
         backButton.setOnClickListener {

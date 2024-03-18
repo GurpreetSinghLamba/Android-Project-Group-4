@@ -16,6 +16,9 @@
             android:name=".candidateActivity"
             android:exported="false" />
         <activity
+            android:name=".CandidateDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity

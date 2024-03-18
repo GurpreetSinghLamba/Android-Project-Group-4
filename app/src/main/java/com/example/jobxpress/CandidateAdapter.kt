@@ -25,15 +25,12 @@ class CandidateAdapter(options:FirebaseRecyclerOptions<candidate_class>)
 override fun onBindViewHolder(holder:MyViewHolder,parent:Int,model:candidate_class){
     holder.textViewName.text=model.name
     holder.textViewTitle.text=model.title
-    val theImage:String=model.imageURL
-    if(theImage.indexOf("gs://")>-1){
-        val storageRef=FirebaseStorage.getInstance().getReferenceFromUrl(theImage)
-        Glide.with(holder.candidatePhoto.context)
-            .load(storageRef)
-            .into(holder.candidatePhoto)
-    }
+
+
+
+
     holder.itemView.setOnClickListener{view->
-        val intent=Intent(view.context,DetailActivity::class.java)
+        val intent=Intent(view.context,CandidateDetailsActivity::class.java)
         intent.putExtra("c_id",model.id)
         intent.putExtra("c_name",model.name)
         intent.putExtra("c_imageURL",model.imageURL)
@@ -45,7 +42,7 @@ class MyViewHolder(inflater: LayoutInflater,parent:ViewGroup)
     :RecyclerView.ViewHolder(inflater.inflate(R.layout.candidate_activity_row_layout,parent,false)){
         val textViewName:TextView=itemView.findViewById(R.id.content)
 val textViewTitle:TextView=itemView.findViewById(R.id.detail_name)
-    val candidatePhoto:ImageView=itemView.findViewById(R.id.imageView)
+
     }
 
     }
